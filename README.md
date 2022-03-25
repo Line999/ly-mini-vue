@@ -16,5 +16,5 @@
 
 或者加入我的技术讨论群，一起交流前端技术
 
-<img src="./src/img/qrcode.jpeg" />
+<img src="/qrcode.jpeg" />
 ****
