@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script src="../src/js/renderer.js"></script>
+    <script src="../src/js/reactive.js"></script>
+    <script>
+      const data = reactive({ counter: 0 });
+
+      const vnode = h("div", null, [
+        h("h2", null, `当前计数：${data.counter}`),
+        h("button", { onClick: increment }, "+1"),
+      ]);
+
+      function increment() {
+        data.counter++;
+        console.log(data);
+      }
+
+      mount(vnode, document.querySelector("#app"));
+    </script>
+  </body>
+</html>

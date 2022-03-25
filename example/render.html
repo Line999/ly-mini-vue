@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>这是render渲染器的例子</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script src="../src/js/renderer.js"></script>
+    <script>
+      // 1.创建vnode
+      const vnode = h("div", { class: "page-container" }, [
+        h("h2", { class: "title" }, "前端从进阶到入院+wx-->leacloud"),
+      ]);
+      // 2.渲染vnode
+      mount(vnode, document.querySelector("#app"));
+
+      // 测试diff算法 patch函数
+      const vnode1 = h("div", { class: "page-container" }, [
+        h(
+          "h2",
+          { class: "title1" },
+          "前端从进阶到入院+wx-->leacloud，请审查元素，新的vnode已经更新覆盖了旧版的vnode"
+        ),
+      ]);
+      patch(vnode, vnode1);
+    </script>
+  </body>
+</html>
